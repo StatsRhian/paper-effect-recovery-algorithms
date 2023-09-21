@@ -1,0 +1,892 @@
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See: http://www.michaelshell.org/ for current contact information.
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[conference]{IEEEtran}
+% Add the compsoc option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+% Additional packages
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsthm}
+\newtheorem{mydef}{Definition}
+\usepackage{tabularx}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\graphicspath{{./img/}}
+%\usepackage{mathtools}
+%\newcommand {\vc} [1] {\boldsymbol{#1}}
+%\newcommand {\mt} [1] {\boldsymbol{#1}}
+%\newcommand {\xb} {\boldsymbol{x}}
+%\newcommand {\bbf} {\boldsymbol{f}}
+%\input{/home/rhian/Dropbox/header}
+
+\begin{document}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{The Effect of Recovery Algorithms on Compressive Sensing Background Subtraction}
+
+% author names and affiliations
+% use a multiple column layout for up to three different
+% affiliations
+\author{\IEEEauthorblockN{Rhian Davies, Lyudmila Mihaylova, Nicos Pavlidis, Idris Eckley}
+\IEEEauthorblockA{STOR-i Centre for Doctoral Training, Lancaster University, Lancaster, UK\\\\
+E-mails: \emph{(r.davies3, mila.mihaylova, n.pavlidis, i.eckley) @lancaster.ac.uk}
+%,\\\emph{marek.schikora@fkie.fraunhofer.de, monika.wieneke@fkie.fraunhofer.de, wolfgang.koch@fkie.fraunhofer.de}
+}}
+%\emph{a.gning@cs.ucl.ac.uk, wolfgang.koch@fkie.fraunhofer.de}}}
+%
+%
+%\IEEEauthorblockN{Michael Shell}
+%\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
+%Georgia Institute of Technology\\
+%Atlanta, Georgia 30332--0250\\
+%Email: http://www.michaelshell.org/contact.html}
+%\and
+%\IEEEauthorblockN{Homer Simpson}
+%\IEEEauthorblockA{Twentieth Century Fox\\
+%Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\and
+%\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
+%\IEEEauthorblockA{Starfleet Academy\\
+%San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212\\
+%Fax: (888) 555--1212}}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+\thanks{Hifi}
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+%
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3},
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+% make the title area
+\maketitle
+
+\begin{abstract}
+%\boldmath
+Background subtraction is a key method required to aid processing surveillance videos. Current methods require storing each pixel of every video frame, which can be wasteful as most of this information refers to the uninteresting background. 
+
+Compressive sensing can offer an efficient solution by using the fact that foreground is often sparse in the spatial domain. By making this assumption and applying a specific recovery algorithm to a trained background, it is possible to reconstruct the foreground, using only a low dimensional representation of the difference between the current frame and the estimated background scene. 
+
+Although new compressive sensing background subtraction algorithms are being created, no study has been made of the effect of recovery algorithms on performance of background subtraction. This is considered by applying both Basis Pursuit and Orthogonal Matching Pursuit (OMP) to a standard test video, and comparing their accuracy. 
+
+% Current methods for this are inefficient as most of the time, we observe background which is not important or of interest. We wish to be able to have information as to the location of foreground in a frame, without having to store information about every individual pixel in every single frame as this can be computationally heavy. 
+
+
+ 
+
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the conference you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals/conferences frown on
+% math in the abstract anyway.
+% no keywords
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+Surveillance cameras have become ubiquitous in many countries, constantly collecting a huge amount of data most of which is stored and never analysed. This is due to the challenge of converting a large volume of video data into useful information, particularly as several cameras may be acquiring data simultaneously. One of the main aims of collecting surveillance footage is to track an object or classify its behaviour, therefore the first step in video analysis is to identify the objects of interest from the background.
+
+%  An automatic detection system could be used to notify the user of unusual behaviour in a place of interest, such as someone placing a package and leaving it in a busy areas or putting goods into their bag, or it could be used to highlight activity in an unusual place at an unusual time, for example a person walking through a private area in the middle of the night.
+
+Background subtraction \cite{Piccardi2004a} is a method used to separate the foreground from the background of a video sequence. This consists of constructing and updating a model of the background and then subtracting it from the current frame. Background subtraction is not a new development and many methods for modelling a background scene exist, however traditional background subtraction methods are not very efficient. Most surveillance footage consists of a slowly adapting background scene with foreground appearing in a subset of the frames and when foreground does appear in the footage it usually takes up only a small percentage of the overall frame. Traditional background subtraction methods require that all pixels are acquired for each frame in order to correctly segment the two layers, however since foreground is sparse in most surveillance footage this can be seen as a waste of resources. 
+
+In order to combat this inefficiency, the single pixel camera (SPC) \cite{Duarte2008a} was developed; a camera based on the theory of compressive sensing \cite{Candes2006, Candes2006a, Donoho2006} and designed to acquire images directly in compressed format. Once surveillance footage is acquired using a camera such as the SPC, background subtraction can be performed on this low dimensional representation of the video frames. Later a recovery algorithm is used to decode a mask of the foreground into the correct dimension. The reason for using this technique is, due to the natural sparsity property of foreground, a mask can be reconstructed without ever storing the current frame, or background model in the full dimensional form. The computational savings available are significant, provided that the segmentation performed is accurate enough for the purpose of the application. 
+% When compressive sensing is applied to surveillance footage, the video is encoded into a lower dimension,
+
+This paper discusses if the choice of recovery algorithm affects the performance of compressive sensing background subtraction. In particular two algorithms are investigated, Basis Pursuit \cite{Candes2005} which is an algorithm based on convex optimisation \cite{boyd2004convex} and a greedy algorithm called Orthogonal Matching Pursuit \cite{tropp2004}. Results are presented from both algorithms on data which was gathered using a conventional camera but which have been simulated to mimic the acquisition process of compressive sensing imaging technology such as the SPC. 
+
+The rest of this paper is organised as follows; Section \ref{sec:related-works} discusses the related works in this area in brief before discussing the methodology behind compressive sensing and its application to background subtraction in Section \ref{sec:background}. Experimentation is conducted in Section \ref{sec:results} and conclusions are given in Section \ref{sec:conclusions}. 
+
+% Compressive sensing  can improve on the efficiency of segmentation algorithms by incorporating this foreground sparsity feature into the background subtraction process.
+
+\section{Related Works}
+\label{sec:related-works}
+
+There is a vast amount of research available  in the literature detailing the many techniques for background subtraction; notable comparative studies include \cite{Sen-Ching2004} and \cite{Piccardi2004a}. Generally, algorithms for background modelling  can be categorised into pixel based and region based methods  \cite{Bouwmans2011}. The latter may seem more intuitive as one expects foreground to be clustered and generally not exist as isolated pixels. Using knowledge of neighbouring pixels should therefore improve the classification of pixels into foreground or background, and region based techniques such as  \cite{elgammal2000} and \cite{toyama1999} do use this knowledge to segment the images into regions and then create a background model based on these regions. However, there are downsides to region based techniques, for example they are often a lot more complex to run than pixel based techniques, and are not generally robust to division of blocks.
+
+Pixel-based methods such as approximate median filtering \cite{McFarlane1995} assume that the pixels observed are classified as foreground independently of each other. These methods can often detect the contours of foreground well but may be susceptible to making false classifications, especially if the background model is not well tuned.  
+
+It is also possible to categorise these algorithms as recursive and non-recursive methods \cite{Bouwmans2011}. A non-recursive algorithm maintains a buffer or window of $N$ previous video frames and estimates a background model based on the statistical properties of these frames. This sliding window is usually required to be fairly large in order to obtain accurate results, and therefore can quickly become computationally intensive. Recursive techniques update the background subtraction each time a new frame is stored and so there is no need to buffer previous frames. The method used in Section \ref{sec:backgr-subtr-with} to model the background is a pixel-based, recursive method.
+
+More recently the new technology of Compressive Sensing \cite{Candes2006, Candes2006a, Donoho2006} has been applied to the background subtraction problem. The theory of compressed sensing states that an undersampled signal can be recovered almost perfectly, given that the signal itself is sparse in some domain \cite{Baraniuk2007}, i.e. a large proportion of the signal's elements are close to zero. In compressive sensing for video, a random matrix is used to encode a signal efficiently, and then a recovery algorithm is used to decode the signal and recover the required information fairly accurately. 
+
+Most compressed sensing background subtraction methods \cite{Cevher2008a, Cevher2008b, Warnell2011, Cossalter2009} make the assumption that the majority of the pixels in a video represent the background, and therefore the foreground is sparse in the spatial domain. This key point allows us to encode a video into a low dimension and then search for a sparse solution, using the knowledge that the foreground mask should be suitably sparse. 
+
+The background subtraction problem is first expressed as a sparse signal recovery problem in \cite{Cevher2008b}. Their work successfully recovers silhouettes of foreground activity by modelling a compressed form of the background and recovering a foreground mask directly from compressed measurements. Later \cite{Warnell2011} builds upon this work by proposing a method that adapts the encoding process between frames to incorporate the changing size of foreground. Unlike \cite{Cevher2008b}, the authors of \cite{Warnell2011} choose to use a static model for the background which could cause problems in the model when applying to real-life video. 
+
+More current work has started attempting to incorporate the structure of foreground into segmentation. It is generally expected that foreground will be clustered into particular shapes in most frames and does not consist of isolated pixels. Foreground often consists of humans, animals and vehicles, and so knowledge of this structure could be used to improve segmentation. Currently many different approaches are being investigated such as applying particle filters \cite{Cossalter2009} and lattice based graphical models \cite{Cevher2008a}. Although cluster type methods are not attempted in this work, it is a research area of interest for future investigation. 
+
+%\cite{Qiu2012} have developed a robust recursive PCA type method to seperate foreground and Background. They use PCA to identify the 'outlier' (the foreground) from the low dimensional subspace (background.) Their algorithm entitlted ReProCs is online, and uses deails about the previous foreground to help vpredict the location of the current foreground by taking advatage of the clustering of foreground. This would fail if the foreground appeared from the centre of the image. 
+
+%\cite{Cossalter2009} keeps tracks of object of interest by applying particle filters to the compressed frames, without ever reconstructing the original image (I.E background subtraction is applied during the the projection domain. The SPGL1 algorithm is applied to recover he foreground and the background is modelled in a block based framework. 
+
+%\cite{Liu2010} focusses on a block based approach, which focuses on using inter-frame correlation. One issue that arrises from this technique is that different regions of the image may exhibt different types of inter-frame correlation. Their method reconstructs the entire image and then applies techniques which is inefficient. But they do instigate a foreground detection which is a threshold based method for determining if there exists foreground in the current frame or not.  
+
+%\cite{Lu2010} discusses alot of the literature based on combining CS with tracking type algorithms but does not focus on the efficiency of assuming the staparsity of foreground in the spatial domain. 
+
+%\cite{Zhao2011}bases their work on the assution that the background has a sparse lienar representation over learned dictionary and that the foreground is sparse.  
+
+%Sparse coding based visual tracking
+%Has an emphasis on tracking algorithms
+%Good discussion or why sparse coding is of value to visual tracking, and if it helps atall. 
+
+%\cite{Cevher2008a}The foreground is often clustered aswell as sparse. We expect foreground to take the shape of a car/vehicle or a person or an animal. Obsiouly this depends on the video we are duscussing but certain could be universal in sandard surveillance footage. (FOOTAGE is all so different / similar). 
+
+%\cite{Li2011} choses to uses hash kernels instead of a random measurement to acquire their signal. Their algorithm uses a customised orthogonal matching pursuit to track foreground. Uses background templates and evalutates all work in terms of the TSP. 
+
+In this work, two recovery algorithms are compared, one greedy method and one based on convex optimisation when applied to a background subtraction algorithm. 
+%The proposed work is inspired by \cite{Cevher2008b}, we wish to be able to understand the effects of different recovery algorithms on the performance of background subtraction, and how the sparsity of the real footage can affect the performance of such algorithms. 
+
+%In summary the main contributions made in this paper are: 
+%\begin{itemize}
+%\item A comparison of recovery algorithms in a compressive sensing for background subtraction setting. 
+%\item Better understanding of the effect of sparsity in foreground detection.
+%\item Discussion of the advantages of using sparsity properties in video analysis.
+%\end{itemize}
+
+\section{Methodology}
+\label{sec:background}
+
+In this section, the main theory is introduced, starting with the explanation of sparse signals in Section \ref{sec:compressible-signals}, progressing to the theory of Compressive Sensing in Section \ref{sec:compressive-sensing} with a focus on the two recovery algorithms of interest in Section \ref{sec:recovery-algorithms} and finally notes on applying this theory to the background subtraction problem in Section \ref{sec:backgr-subtr-with}.
+
+\subsection{Sparse and Compressible Signals}
+
+\label{sec:compressible-signals}
+A signal is known as being $K$-sparse if $\boldsymbol{x} \in R^N$ can be represented as a linear combination of $K$ basis vectors \cite{Baraniuk2007}. The case of interest occurs when $K$ is much smaller than $N$ as this means that most of the coefficients are zero. No signal is ever truly sparse in the presence of noise and so some signals are described as approximately sparse, or compressible. If a signal is compressible there exist $K$ large coefficients (with $K \ll N$) but the remaining $N-K$ coefficients are only required to be small and not necessarily zero. Fundamentally a signal is compressible if most of the information in the signal is represented by a few coefficients.
+
+\subsection{Compressive Sensing}
+\label{sec:compressive-sensing}
+
+According to the framework developed in \cite{Candes2006, Candes2006a, Donoho2006}, the measurement $\boldsymbol{y}$ is a linear function of the signal $\boldsymbol{x}$ as shown in Eq. \eqref{eq:10}. The number of measurements $M$ in $\boldsymbol{y}$ is chosen to be smaller than $N$, so a measurement matrix $\boldsymbol{\Phi} \in R^{M \times N}$ is chosen, with $M \ll N$. Although it is known from linear algebra that there are infinitely many vectors $\boldsymbol{x}$ that can solve Eq. \eqref{eq:10}, the knowledge that the original signal $\boldsymbol{x}$ was sparse can be used to help the reconstruction process, given that certain conditions hold for $\boldsymbol{\Phi}$. 
+
+%It is known from linear algebra that there are infinitely many vectors $\boldsymbol{x}$ that can solve Eq. \eqref{eq:10}, but usually $\boldsymbol{x}$ is the only sparse solution, provided that $M \geq 2K$, where $K$ is the true sparsity of the signal. Therefore if $\boldsymbol{x}$ is known in advance to be sparse, it can in theory be reconstructed exactly from $M$ measurements.
+%
+\begin{equation}
+  \label{eq:10}
+\boldsymbol{y} =\boldsymbol{\Phi x}
+\end{equation}
+%% Assuming that $\boldsymbol{x}$ is $K$-sparse, and that the location of these $K$ large coefficients is known, it is possible to reconstruct $\boldsymbol{x}$ accurately for $M > K \log N$, but a number of conditions must be true of the measurement matrix $\boldsymbol{\Phi}$.. $\boldsymbol{\Phi}$ needs to enable the signal $\boldsymbol{x} \in R^N$ to be be reconstructed accurately from the measurement vector $\boldsymbol{y} \in R^M$.
+It is of vital importance that a stable measurement matrix $\boldsymbol{\Phi}$ is designed so that the signal information is not damaged by the dimensional reduction from $\boldsymbol{x} \in R^N$ to $\boldsymbol{y} \in R^M$. In order for the reconstruction problem to be well-conditioned, it is sufficient that ${\boldsymbol{\Phi}}$ holds the Restricted Isometry Property (RIP) \cite{Donoho2006} of order $2K$. 
+
+\begin{mydef}
+ A matrix $\boldsymbol{\Phi}$ satisfies the (RIP) of order $K$ if there exists a $\delta_K  \in (0,1)$ such that 
+\begin{equation*}
+  \label{eq:40}
+  (1 - \delta_k)\|\boldsymbol{x}\|^2_2 \leq\|\boldsymbol{\Phi} \boldsymbol{x}\|^2_2 \leq (1 + \delta_k)\|\boldsymbol{x}\|^2_2,
+\end{equation*}
+
+for all $\boldsymbol{x} \in \sum_K = \{\boldsymbol{x}:\|\boldsymbol{x}\|_0 \leq K\} $, \newline
+
+where $\|\boldsymbol{x}\|_0$ is the zero pseudo-norm defined as
+
+\begin{equation*}
+\|\boldsymbol{x}\|_0 = \#(i|x_i \neq 0). 
+\end{equation*}
+ 
+\end{mydef}
+
+%WRONG?
+%The $l_2$ norm is defined  in equation \eqref{eq:573}. 
+%
+%\begin{equation}
+%\label{eq:573}
+%  ||\boldsymbol{x}||_2 = \sum_{i=1}^{N}||\boldsymbol{x_i}^2||
+%\end{equation}
+
+If $\boldsymbol{\Phi}$ satisfies the RIP with order $2K$, then $\boldsymbol{\Phi}$ approximately preserves the distance between any pair of $K$-sparse vectors. Unfortunately the task of checking that a matrix satisfies the RIP is a NP-hard problem, but fortunately the RIP will hold true with high probability if $\boldsymbol{\Phi}$ is selected as a random matrix \cite{Candes2006a}, and $M \geq cK\log \frac{N}{K}$, where $c$ is a small constant. 
+
+%Another essential condition when selecting a $\Phi$ is incoherence, which requires that the rows of $\boldsymbol{\Phi}$ cannot sparsely represent the columns of $\boldsymbol{\Psi}$, and vice versa the the rows of $\boldsymbol{\Psi}$ cannot sparsely represent the columns of $\boldsymbol{\Phi}$, which will ensure that $\boldsymbol{\hat{x}}$ is a unique solution.
+%In order to construct $\boldsymbol{\Phi}$ as such, we choose the entries $\phi_{i,j}$ as independent realisations of some probability distribution.
+% In this work  $\phi_{i,j}$  are chosen to be independent and identically distributed (i.i.d.) Gaussian random variables with mean 0 and variance  $\frac{1}{N}$, but other distributions can be used.
+
+
+\subsection{Recovery Algorithms}
+\label{sec:recovery-algorithms}
+
+Right at the heart of the compressive sensing theory is the ability for recovery algorithms to provide accurate signal estimations in an efficient manner. Recovery algorithms generally fall into two categories, those based on convex optimisation and greedy algorithms. One of the basic algorithms from each category are considered.   
+
+\subsubsection{Convex Optimisation}
+\label{sec:convex-optimization}
+
+Convex optimisation is a minimisation problem subject to a number of constraints where the functions involved are convex. According to \cite{Baraniuk2007}, optimisation based on the $\ell_1$ norm can exactly recover $K$-sparse signals and closely approximate compressible signals with high probability using only $M  \geq cK \log \frac{N}{K} $ iid Gaussian measurements. The $\ell_1$ norm of a vector $\boldsymbol{x}$ is the sum of the absolute values of the elements of $\boldsymbol{x}$ and is defined mathematically in Eq. \eqref{eq:57}.  %As seen in Eq. \eqref{eq:10}, in this problem there is an underdetermined system, and so there exists many possible solutions and the most suitable solution needs to be selected as the best estimate for the decoded signal. In addition it is known that before encoding, the signal $\boldsymbol{x}$ was sparse in some form, which is the key factor which enables us to decode the signal later.
+
+%A natural starting point to solving this recovery problem and decoding our signal is to solve the $l_0$ optimisation problem posed in.
+%\begin{equation}
+%  \hat{x}  = \text {min}_x ||x||_0 \text{ such that } x \Phi = y
+%\end{equation}
+%The $l_0$ norm is simply the number of non-zero coordinates of $x$, so by using  we should encourage sparse solutions to equation and therefore obtain a sensible approximation of $x$. Unf%ortunately the $l_0$ norm $||.||_0$ is non-convex and therefore difficult to solve, so suggestion is made to replace that operator with a convex one, such as the $\ell_1$ norm.
+%No general solver is applied to these problems, but many methods exist that can be applied.
+ 
+
+
+%An $l_p$ norm is defined for $p \in [1,\infty]$ as
+%
+%\begin{equation}
+% ||x||_p = \left\{ \begin{array}{ll}
+%         (\sum_{i=1}^n||x_i||^p)^{\frac{1}{p}}, &p \in [1,\infty); \\
+%        max_{i=1,2,...,n}||x_i||, & p = \infty.\end{array} \right.  
+%\end{equation}
+%
+
+
+\begin{equation}
+\label{eq:57}
+  \|\boldsymbol{x}\|_1 = \sum_{i=1}^{N}|x_i|
+\end{equation}
+
+%This is technically a convex approximation of $l_0$ minimisation. So why does using $\ell_1$ minimisation ``promote'' sparsity?
+The use of $\ell_1$ minimisation to promote sparsity is not a new idea, the links between $\ell_1$ minimisation and sparsity were first noted in the field of geophysics when it was observed \cite{claerbout1973} that minimising the $\ell_1$ norm could help detect sparse spike trends in earthquake data. The idea soon caught on, \cite{taylor1979} utilised $\ell_1$ methods in their work on extracting spike trains and eventually in 1996, $\ell_1$ minimisation was approached in statistics as LASSO \cite{tibshirani1996} (Least Absolute Shrinkage and Selection Operator) was developed. LASSO is a version of least squares with a constraint that the $\ell_1$ norm, $\|x\|_1$ cannot be larger than some value $\epsilon$. This penalty encourages more parameters to become zero as it increases, therefore promoting sparsity. Basis Pursuit was developed in \cite{chen2001} and is a type of $\ell_1$ minimisation algorithm defined as 
+
+\begin{equation}
+  \label{eq:4}
+  \min_{\boldsymbol{x}} ||\boldsymbol{x}||_1 \text{ subject to } \boldsymbol{y} = \boldsymbol{\Phi} \boldsymbol{x}.
+\end{equation}
+This can be viewed as a least squares problem with an $\ell_1$ regularizer. Basis Pursuit is considered to have polynomial complexity but in reality this is not always true for standard optimisation packages as they are not tailored for sparse signal recovery. 
+
+%In order to cope with a noise factor this becomes Basis Pursuit Denoising they adapt the problem as 
+%\begin{equation*}
+%  \label{eq:5}
+%\min_{\boldsymbol{x}}||\boldsymbol{\Phi} \boldsymbol{x}-\boldsymbol{y}||^2_2 + \lambda_n||\boldsymbol{x}||_1.
+%\end{equation*}
+% The $\lambda$ factor is a tuning parameter used to control the trade off between sparsity and accuracy of reconstruction. Notice that as $\lambda \rightarrow 0 $, Basis Pursuit Denoising tends to the simpler Basis Pursuit. This can be rewritten as a linear problem with many constraints and variables, however this problem may be solved using linear programming, so long as the problem is not too computationally demanding.
+%\begin{equation*}
+%  \label{eq:3}
+%  \hat{\boldsymbol{x}} = \argmin_{\boldsymbol{y} = \boldsymbol{\phi} \boldsymbol{x}} ||\boldsymbol{x}||_1
+%\end{equatioN*}
+
+In Section \ref{sec:results} the $\ell_l$ magic \cite{Candes2005} implementation of Basis Pursuit is applied, which solves Eq. \eqref{eq:4} by recasting the problem as a primal dual algorithm based on work by \cite{boyd2004convex}. The Newton-Raphson method is then applied in order to detect an interior point at which the system is linearised and solved. 
+\subsubsection{Greedy Algorithms}
+\label{sec:greedy-algorithm}
+A greedy algorithm iteratively makes decisions based on some locally optimal solution. One of the simplest greedy algorithms suitable for the sparse signal approximation problem is Orthogonal Matching Pursuit. Some of the earliest Orthogonal Matching Pursuit algorithms can be found in \cite{pati1993, davis1997}, although notable more recent work can be found in  \cite{tropp2004} and \cite{tropp2007}. This method can often perform faster than Basis Pursuit due to its simplicity. It iteratively computes the local optimum solutions in the hope that these will lead to the global optimum solution. The algorithm determines the column of $\boldsymbol{\Phi}$ which is most correlated with $\boldsymbol{y}$, or which contributes to $\boldsymbol{y}$ most. This is repeated again by comparing the correlation between columns of $\boldsymbol{\Phi}$ with the signal residual, until it reaches some stopping criterion defined by the user.  This can be described algorithmically as in Algorithm 1.  
+
+%Define $\emph{x}$ to be the $k$-sparse signal of interest with length $N$. Measurement vectors $\emph{x}_1, \emph{x}_2 \hdots, \emph{x}_M$ are used to collect observations of our original signal. These vectors are also of length $N$. If we compile all of these vectors into a matrix, we end up with a measurement matrix $\Phi$ of size $M \times N$ where $M < < N$.  As above define $\Phi$ to be an $ M \times N$ matrix whose rows are the above discussed measurement vectors. 
+%In order to make a good estimate of $\boldsymbol{x}$ it is necessary need to know which columns of $\boldsymbol{\Phi}$ contribute to the observation $\boldsymbol{y}$.
+
+\begin{algorithm}
+\caption{Orthogonal Matching Pursuit}  
+
+\begin{algorithmic}
+
+\STATE{Define the columns of $\boldsymbol{\Phi}$ to be $\varphi_1, \varphi_2, \hdots, \varphi_N$.}% each of length $M$.}
+\REQUIRE $\boldsymbol{r_0} = \boldsymbol{y}, \Lambda_0 = \emptyset$ and iteration counter $i = 1$
+\FOR{$i < T$} % \COMMENT{T is the maximum iteration count.}
+ \STATE  $\lambda_t = \text{argmax }_{j=1,\hdots,N}|<r_{t-1}, \varphi_j>|$ \\  \COMMENT{Find the index for the column of $\Phi$ with the greatest contribution.}
+ \STATE  $\Lambda_t = \Lambda_{t-1} \cup {\lambda_t}$, $\Phi_t = [\boldsymbol{\Phi_{t-1}}, \varphi_{\lambda_t}]$ \\ \COMMENT{Keeps track of the columns used.}
+\STATE   $\boldsymbol{x_t} = \text{argmin}_{\boldsymbol{x}} || \boldsymbol{y} - \boldsymbol{\Phi_t} \boldsymbol{x}||_2$  \\ \COMMENT{Updates the signal estimate.}
+\STATE  $\boldsymbol{r_t} =  \boldsymbol{y} - \boldsymbol{\Phi_t} \boldsymbol{x_t}$ \\ \COMMENT {Updates the measurement residual.}
+\ENDFOR
+\RETURN  $\boldsymbol{\hat{x}}$
+
+\end{algorithmic}
+\end{algorithm}
+
+In the algorithm, $\hat{\boldsymbol{x}}$ is updated for each iteration with the contributions from the columns of $\boldsymbol{\Phi}$ placed in the indexes stored in $\Lambda_t$. So if the algorithm is stopped after the $T$th iteration for some positive integer $T$,  $\boldsymbol{\hat{x}}$ will be a $T$-sparse vector. This emphasises how important it is to run the algorithm for the correct number of iterations, although generally this number is unknown. 
+
+Using greedy algorithms can be advantageous for the background subtraction problem as they can be both flexible and speedy. Greedy algorithms are less restrained to a particular form than in $\ell_1$ minimisation, therefore greedy algorithms can incorporate constraints which do not fit naturally in a convex formulation. Also, when the signal $\boldsymbol{x}$ is exceptionally sparse, only a few iterations are required, which makes the whole process very fast. \cite{tropp2007} claims that OMP can recover a $K$-sparse signal of size $N$ by making only $\mathcal{O}(k \ln N)$ observations of the signal. However, the correlation between the sparsity of the foreground mask and the choice of the stopping criterion means that unless the stopping criterion is adaptive, the algorithm may struggle with varying sparsity as discussed in Section \ref{sec:results}. As the signal length and number of measurements increases, so does the computational complexity - particularly in the identification stage. In this stage, the algorithm attempts to find the column $\varphi$ of $\boldsymbol{\Phi}$ which is most strongly correlated with the residual. As the number of iterations increases, the sparsity of the signal estimate $\boldsymbol{\hat{x}}$ decreases. Therefore iterating for too long ($T \ll K$) not only leads to a poor estimate but unnecessary computational time. 
+
+  
+%The rate of convergence can be dependent on how well the dictionary expresses the signal of interest. 
+%$||r|| \leq K^{\frac{-1}{2}}||u||_\Phi$ when $||u||_\Phi = \text{inf} {||x||:u = \Phi x}$
+
+\subsection{Background Subtraction with Compressive Sensing}
+\label{sec:backgr-subtr-with}
+
+A major assumption when applying compressive sensing techniques to foreground segmentation is the assumption that the foreground is sparse in the spatial domain  \cite{Cevher2008b}. This means that without having to apply any sort of sparsifying transformation, the foreground only takes up a small percentage of the number of pixels in the frame. Figure \ref{fig:sparse} shows a test frame and the true foreground or ``Ground Truth'' where white pixels represent the true foreground and black pixels represent the true background. The number of white pixels (3862) is much smaller than the number of black pixels (438,506) therefore indicating that the foreground is indeed sparse in the spatial domain. The precise sparsity of the foreground will inevitably vary in different  videos and even between frames as discussed in \cite{Warnell2011}. 
+
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.2\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{camReal}
+                \caption{Test frame}
+               % \label{fig:gull}
+        \end{subfigure}%
+        ~ %add desired spacing between images, e. g. ~, \quad, \qquad etc.
+          %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.2\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{camGT}
+                \caption{Ground truth}
+              %  \label{fig:tiger}
+        \end{subfigure}
+\caption{The spatial sparsity of foreground. A frame from the PETS data set  \cite{pets2001} and the corresponding foreground in white. In this example, less than 1\% of the frame is foreground, as N=442,368 and K=3862.  }\label{fig:sparse}
+\end{figure}
+
+Our method takes a vectorised form of the current frame $\boldsymbol{x_t}$, and acquires compressive measurements $\boldsymbol{y_t}$ of the frame using a Gaussian random matrix $\boldsymbol{\Phi}$. The foreground mask $\boldsymbol{x_t^f} $is then reconstructed by applying a recovery algorithm  to $(\boldsymbol{y_t} - \boldsymbol{y_t^b})$, where $\boldsymbol{y_t^b}$ is a compressed model for the background at time $t$. The silhouette is then thresholded to set any small values to zero, and the non-zero pixels are classified as foreground. 
+
+In order for this method to work well, it is important that a good model of the background is kept updated. Although a static background could be used for short indoor sequences, most real-world video sequences require a dynamic background model. \cite{Piccardi2004a} suggests that a background model should be able to adapt to deal with illumination changes, high frequency repetitive background objects and changes in background geometry. Illumination changes can be separated into gradual changes, or rapid changes. Gradual changes in illumination are mainly due to the light changing throughout the day. Rapid changes in illumination may occur when clouds cover the sun in outdoor scenes or a light being switched on or off in interior scenes. High frequency background objects are mainly found in outdoor footage such as leaves waving in the wind, water rippling or rainy weather. These small movements are actually part of the background so care should be taken to use an algorithm which detects them as such.  Changes in background geometry refers to when part of the background begins to move. Examples of this are very common in real videos, such as a chair being repositioned in a room such as in \cite{toyama1999} or a car driving into a car park as foreground, and then parking therefore becoming part of the background. In this report the background is modelled using an exponentially weighted moving average method as discussed in \cite{Piccardi2004a} and \cite{Cossalter2009}. This is calculated as in Eq. \eqref{eq:111}.
+\begin{equation}
+  \label{eq:111}
+  \boldsymbol{y_t^b} = \alpha \boldsymbol{y_t} + (1 - \alpha) \boldsymbol{y^b_{t-1}}
+\end{equation}
+ where $\alpha \in (0,1)$ is a learning parameter.
+This background model was chosen, as it is not computationally heavy, and the single learning parameter $\alpha$ keeps tuning the model simple. The initial background $\boldsymbol{y^b_0}$ is calculated by taking an average of scenes from a training set. If this information is not available it is possible to use only the first frame in the data set, but this may not be as accurate. The background model learning parameter $\alpha$ is tuned so that it is sensitive to the challenges discussed above, specifically to avoid the change in geometry problems. This challenge is especially prominent in the experimentation in Section \ref{sec:results} as the video used is CCTV footage from a car park.   
+
+%Examples may also occur indoors but these are often less prominent.
+
+%The background is modelled using a running average method as discussed in \cite{piccardi2004background} and \cite{Cossalter2009}. 
+%This is calculated as in Eq. \eqref{eq:111}.
+%\begin{equation}
+%  \label{eq:111}
+%  \boldsymbol{y_t^b} = \alpha \boldsymbol{y_t} + (1 - \alpha) \boldsymbol{y^b_{t-1}}
+%\end{equation}
+% where $\alpha$ is a learning parameter.
+% The background model learning parameter $\alpha$ has to be tuned well so that it is both sensitive to changes such as cars stopping and starting, but also robust to rapid oscillatory movement such as leaves moving in the wind. The initial background $\boldsymbol{y_0^b}$ is chosen by taking an average a window of training frames, or if there is a lack of training data, it is possible to take the first frame as the initial background.  
+
+%%%%%%%%%%%%%%%IEEETRAN%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation Results}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command, the
+% \label for the overall figure must come after \caption.
+% \hfil must be used as a separator to get equal spacing.
+% The subfigure.sty package works much the same way, except \subfigure is
+% used instead of \subfloat.
+%
+%\begin{figure*}[!t]
+%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
+%\label{fig_second_case}}}
+%\caption{Simulation results}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that IEEE does not put floats in the very first column - or typically
+% anywhere on the first page for that matter. Also, in-text middle ("here")
+% positioning is not used. Most IEEE journals/conferences use top floats
+% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
+% command of the stfloats package.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Performance Evaluation}\label{sec:results}
+
+The PETS 2001 dataset ``camera1''  \cite{pets2001},  is used to compare implementation of the CS$_{\ell_1}$ and CS$_{\text{OMP}}$ algorithms. A quantitative way to characterise the accuracy of these algorithms is to use two performance metrics; precision and recall.  These measures calculate how accurate the segmentation is for a particular frame by comparing the estimated foreground and background with the true values calculated by a hand-segmented ground truth.
+% These true values are calculated by segmenting a frame by hand, this frame is known as the ground truth.
+
+In order to quantify how well an algorithm is working, Type I errors and Type II errors must be considered. A Type I error is a false positive (FP), this is experienced when the algorithm classifies a pixel as foreground incorrectly. A Type II error is a false negative (FN), this where the algorithm has neglected to classify a pixel as foreground correctly. If the algorithm works perfectly there will only be True Positives (TP) which are correctly identified foreground pixels and True Negatives (TN), correctly identified background pixels.
+Recall is defined as the fraction of correctly identified foreground pixels over the number of ground truth foreground pixels which can be written mathematically as
+\begin{equation}
+  \label{eq:1}
+\text{Recall} = \frac{TP}{TP + FN}. 
+\end{equation}
+Precision is defined to be the fraction of correctly identified foreground pixels over the number of detected foreground pixels in total, or when written mathematically
+\begin{equation}
+  \label{eq:2}
+\text{Precision} = \frac{TP}{TP + FP}.
+\end{equation} 
+%\end{definition}
+
+When the recovery algorithms provide an estimate of a foreground mask, the output is not binary but a probabilistic vector. In order to calculate the precision and recall values, a threshold must first be applied to the estimate. Precision-Recall curves can be used to display information relating to the algorithm's performance across a number of thresholds.
+
+In order to have a singular metric to rank the algorithms across a number of thresholds the Area Under Curve (AUC) \cite{Hanley1983} is used. This is equal to the probability that an algorithm  will rank a randomly chosen positive instance higher than a randomly chosen negative one. 
+%Although recall and precision can be useful, for ranking performance, it is also good to consider receiver operating characteristic (ROC) curves \cite{Fawcett2006}. ROC curves represent the performance of our classifiers as the foreground threshold is varied.  In order to compare these curves, the Area Under the Curve (AUC) is calculated \cite{Hanley1983}. 
+
+%A value close to 1 implies high recall which means that all of the foreground pixels were correctly identified by the background subtraction algorithm. Recall cannot be used alone as a metric, as even if all of the foreground pixels are correctly detected, this does not give any information on about whether extra pixels have been misclassified as foreground. Hence precision is also used to quantify how accurate the algorithm is. 
+%A high precision value implies that of all the pixels classified as foreground, they are also foreground in the ground truth. We can not be sure if we have missed some foreground elements until we consider recall.
+%If we wish to rank algorithms in order, it is useful to have one overall measure of the algorithms accuracy. A popular choice in the literature is percentage of correct classifications (PCC). 
+%\begin{definition}
+%  \label{def:3}
+%  Percent of correct classifications (PCC) is defined to be 
+%\begin{equation}
+%  \label{eq:3}
+% \frac{TP+TN}{TP + TN + FP + FN},
+%\end{equation}
+%where TP, TN, FP and FN are defined as above. 
+%\end{definition}
+%Although PCC can be useful for ranking performance, it is important to not just rely on one metric. It is possible for a background subtraction technique to fail to detect any foreground in the test frame giving a recall value of 0, but the PCC could still be very high if the algorithm correctly identifies all of the true negatives. This is a good example of why metrics cannot be solely relied on, and reinforces the importance of visually analysing the output as well as considering metrics.
+%The ROC AUC is equivalent to the probability that our algorithm will rank a randomly chosen positive instance higher than a randomly chosen negative one. 
+%CS$_{\text{OMP}}$ struggles with respect to both performance metrics, whilst CS$_{\ell_1}$ gives a poor recall value despite good precision. Both algorithms struggle with recall which indicates that the algorithms missclassify many true foreground pixels as background. This could be due to a failure when the foreground occupies a very small area but some noise is also accidentally identified by background subtraction algorithms. This could perhaps be avoided by incorporating a more stable background subtraction algorithm, or applying a detection threshold which only attempts to reconstruct foreground if it takes up at least a certain percentage of the entire frame. This detection threshold would hopefully also lower computational complexity, but could be very difficult to tune correctly. 
+%NOISE etc
+%\begin{table}[h]
+%  \centering
+%  \begin{tabular}{c|c|c|c}
+%    & Precision & Recall & AUC \\ \hline 
+%$\ell_1$ &0.9144 &0.1845 &0.9940 \\
+%OMP & 0.4012&0.0623 &0.9877 \\
+%  \end{tabular}
+%\caption{Performance metrics} \label{tab:1}
+ %0.4012     0.0623     0.9755     0.9877     0.9144     0.1845     0.9807     0.9940
+%\end{table}
+
+\begin{table}[ht!]
+\caption{CS$_{\ell_1}$ and CS$_{\text{OMP}}$ segmentation for 3 test scenes ($N = 4096, M = 2048, \alpha = 0.05$). }
+\centering
+\begin{tabular}{cccc}
+\parbox[top]{18mm}{Original} & \includegraphics[width=18mm]{1}& \includegraphics[width=18mm]{2} & \includegraphics[width=18mm]{3} \\
+\parbox[top]{18mm}{Ground Truth} & \includegraphics[width=18mm]{GTB}& \includegraphics[width=18mm]{GTD} & \includegraphics[width=18mm]{GTE} \\
+\parbox[top]{18mm}{CS$_{\ell_1}$} & \includegraphics[width=18mm]{1l}& \includegraphics[width=18mm]{2l} & \includegraphics[width=18mm]{3l} \\
+\parbox[top]{18mm}{CS$_{\text{OMP}}$} & \includegraphics[width=18mm]{1o}& \includegraphics[width=18mm]{2o} & \includegraphics[width=18mm]{3o} \\
+\end{tabular}
+\label{tab:gt}
+\end{table}
+
+%\begin{table}[ht!]
+%\caption{Ground Truth, L1 and OMP segmentation for 5 test scenes ($N = 4096, M = 2048, \alpha = 0.05$). }
+%\centering
+%\begin{tabular}{cc}
+% \includegraphics[width=35mm]{Bpr}&\includegraphics[width=35mm]{Cpr} \\
+% \includegraphics[width=35mm]{Dpr}&\includegraphics[width=35mm]{Epr} \\
+%\end{tabular}
+%\label{tab:gt}
+%\end{table}
+%Both algorithms struggle to fill in the foreground  entirely. This could be due to the threshold being set too low or perhaps some blob processing could be applied in order to improve this. Note that in the third image, both algorithms perform badly. In this scene a car is slowing and stopping in order to park, and so perhaps the background model is not adapting quick enough.
+
+Foreground masks for three test frames can be found in Table \ref{tab:gt}. These images have been thresholded so any value above $0.004$ is classed as foreground and everything else is set to background. The performance of both algorithms is very similar, although the Precision-Recall curves in Figure \ref{fig:precrec} imply that CS$_{\ell_1}$ may be slightly outperforming CS$_{\text{OMP}}$ across the different thresholds. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width = 10cm]{Epr}
+  \caption{Precision-Recall Curves for the 3rd test frame}
+  \label{fig:precrec}
+\end{figure}
+
+The effect of the stopping criterion for the Orthogonal Matching Pursuit can be seen in Figure \ref{fig:omp}. The stopping criterion is increased between $1$ and $400$ and the AUC is calculated at each stage. As discussed in Section \ref{sec:greedy-algorithm}, the selection of the stopping criterion can have an impact on the results; too small and it will underestimate the size of the foreground, too large and computational expense will increase greatly with no noticeable performance improvement. This can be seen in the steep increase of performance in Figure \ref{fig:omp}. Note that as the number of iterations reaches approximately the ``true'' sparsity $111$ of the foreground, the performance increases. Ideally, the stopping criterion should be as small as possible to minimise the computational cost, but not at the expense of poor segmentation. 
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width = 9cm]{varyingSComp}
+  \caption{Selection of the stopping criterion for OMP}
+  \label{fig:omp}
+\end{figure}
+
+Another consideration is the effect of the choice of $M$ on recovery accuracy. Ideally the number of $M$ should be as small as possible in order to keep computations cost low, whilst still retaining a good enough quality of detection to suit the application, whether it be tracking, classification etc. Figure \ref{fig:sr} shows the performance of both algorithms as the compression ratio $\frac{M}{N}$ increases, with respect to AUC. There is a sharp rise in performance as the compression ratio increases to 20\%, and as we approach a compression rating of 30\%, both algorithms are performing very well. Note that CS$_{\ell_1}$ is constantly outperforming CS$_{\text{OMP}}$ in this experiment over all compression ratios.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width = 9cm]{AUCcompressionRatio}
+  \caption{AUC over Sparsity Ratio}
+  \label{fig:sr}
+\end{figure}
+
+
+\section{Conclusions and Further Work}\label{sec:conclusions}
+This paper presents results about the effects of different compressive sensing recovery algorithms on background subtraction for surveillance footage. In our experimentation Basis Pursuit outperforms Orthogonal Matching Pursuit across the foreground thresholds, although it is hard to distinguish them from foreground masks alone.  The effect of the stopping criterion for OMP was seen to have a large impact on performance, which indicates the necessity for adaptive iterations in order to cope with varying sparsity in a video. It is also indicated that ideal boundaries for the compression ratio $\frac{M}{N}$ are between $25 - 35\%$.  One important question to address in future is, is it possible to incorporate more prior information about surveillance footage and use this to aid the recovery process? In current methods, there is a failure to use the natural structural properties of foreground, such as the expectation of foreground to take the shape of a person or vehicle. Structured sparsity has not been well explored in the compressive sensing background subtraction literature although a start in this area has been made by \cite{La2006} and \cite{Duarte2008}. Future work seeks to apply a clustering method to these background subtraction algorithms and to build in a natural way to allow the sparsity constraint in the algorithms to vary between frames. 
+
+%ow can we take advantage of prior knowledge of images, e.g. smoohness qualities.
+%\item Colour footage? 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% conference papers do not normally have an appendix
+% use section* for acknowledgement
+
+\section*{Acknowledgments}
+Davies gratefully acknowledges the financial support of the EPSRC through a studentship within the STOR-i Centre for Doctoral Training, grant number EP/H023151/1.
+
+
+\bibliography{library, rhian}
+\bibliographystyle{IEEEtran}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+% references section
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained a1t:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibx1liography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+%\begin{thebibliography}{1}
+%
+%\bibitem{IEEEhowto:kopka}
+%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+%
+%\end{thebibliography}
+% that's all folks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
